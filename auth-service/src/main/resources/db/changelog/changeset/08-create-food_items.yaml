@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 8
+      author: misha
+      changes:
+        - createTable:
+            tableName: food_items
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: meal_entry_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: calories
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false
+              - column:
+                  name: protein
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: true
+              - column:
+                  name: fats
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: true
+              - column:
+                  name: carbs
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: true
+              - column:
+                  name: portion_size
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: food_items
+            baseColumnNames: meal_entry_id
+            constraintName: fk_food_items_meal_entry
+            referencedTableName: meal_entries
+            referencedColumnNames: id
+            onDelete: CASCADE

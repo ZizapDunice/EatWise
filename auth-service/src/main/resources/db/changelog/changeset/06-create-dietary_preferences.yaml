@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: 6
+    author: misha
+    changes:
+      - createTable:
+          tableName: dietary_preferences
+          columns:
+            - column:
+                name: user_profile_id
+                type: UUID
+                constraints:
+                  nullable: false
+            - column:
+                name: preference
+                type: VARCHAR(100)
+                constraints:
+                  nullable: true
+      - addForeignKeyConstraint:
+          baseTableName: dietary_preferences
+          baseColumnNames: user_profile_id
+          constraintName: fk_dietary_preferences_user
+          referencedTableName: user_profiles
+          referencedColumnNames: id
+          onDelete: CASCADE

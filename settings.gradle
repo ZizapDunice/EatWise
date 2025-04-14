@@ -1,3 +1,4 @@
 rootProject.name = 'EatWise'
 
 includeBuild 'calory-counting-server'
+includeBuild 'auth-service'
