@@ -1,11 +1,11 @@
-package org.example.authservice.security;
+package org.example.calorycountingserver.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.example.authservice.handling.ErrorCodes;
-import org.example.authservice.models.commonResponse.BaseSuccessResponse;
+import org.example.calorycountingserver.handling.ErrorCodes;
+import org.example.calorycountingserver.models.commonResponse.BaseSuccessResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

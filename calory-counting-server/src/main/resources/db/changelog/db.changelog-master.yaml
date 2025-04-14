@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/01-create-users.yaml
+  - include:
+      file: db/changelog/changeset/02-create-roles.yaml
+  - include:
+      file: db/changelog/changeset/03-create-user_roles.yaml
+  - include:
+      file: db/changelog/changeset/04-insert-roles.yaml
+  - include:
+      file: db/changelog/changeset/05-create-user_profiles.yaml
+  - include:
+      file: db/changelog/changeset/06-create-dietary_preferences.yaml
+  - include:
+      file: db/changelog/changeset/07-create-meal_entries.yaml
+  - include:
+      file: db/changelog/changeset/08-create-food_items.yaml

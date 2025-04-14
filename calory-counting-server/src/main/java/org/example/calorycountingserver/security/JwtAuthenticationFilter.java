@@ -1,4 +1,4 @@
-package org.example.authservice.security;
+package org.example.calorycountingserver.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.example.authservice.models.commonResponse.BaseSuccessResponse;
+import org.example.calorycountingserver.models.commonResponse.BaseSuccessResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,16 +21,16 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.example.authservice.constants.Constants.BEARER_PREFIX;
-import static org.example.authservice.constants.Constants.HEADER_NAME;
-import static org.example.authservice.handling.ErrorCodes.UNAUTHORISED;
+import static org.example.calorycountingserver.constants.Constants.BEARER_PREFIX;
+import static org.example.calorycountingserver.constants.Constants.HEADER_NAME;
+import static org.example.calorycountingserver.handling.ErrorCodes.UNAUTHORISED;
 
 
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
+    private final JwtTokenValidator jwtService;
     private final CustomUserDetailsService userDetailsService;
 
     @Override

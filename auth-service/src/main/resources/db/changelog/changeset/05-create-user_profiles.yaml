@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: misha
+      changes:
+        - createTable:
+            tableName: user_profiles
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: auth_user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: gender
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: height
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false
+              - column:
+                  name: goal
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: activity_level
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: true
