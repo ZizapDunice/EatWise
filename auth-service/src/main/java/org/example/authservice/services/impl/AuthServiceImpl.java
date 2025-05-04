@@ -44,7 +44,7 @@ public class AuthServiceImpl implements AuthService {
 
         UserEntity newUser = repository.save(user);
 
-        return generateLoginResponse(newUser);
+        return generateLoginResponse(newUser, "Пользователь успешно зарегистрирован");
     }
 
     @Transactional
@@ -57,13 +57,13 @@ public class AuthServiceImpl implements AuthService {
             throw new CustomException(ErrorCodes.PASSWORD_NOT_VALID);
         }
 
-        return generateLoginResponse(user);
+        return generateLoginResponse(user, "Успешный вход в систему");
     }
 
-    private LoginUserResponse generateLoginResponse(UserEntity user) {
+    private LoginUserResponse generateLoginResponse(UserEntity user, String message) {
         CustomUserDetails customUserDetails = new CustomUserDetails(user.getId(), user.getPassword(), user.getRoles());
         String jwt = jwtTokenGenerator.generateToken(customUserDetails);
-        return userMapper.fromUserEntityToLoginUserResponse(user, jwt);
+        return userMapper.fromUserEntityToLoginUserResponse(user, jwt, message);
     }
 
 }

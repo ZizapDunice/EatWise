@@ -11,7 +11,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginUserResponse {
+public class UserResponse {
 
     private String email;
 
@@ -20,8 +20,4 @@ public class LoginUserResponse {
     private String name;
 
     private Set<RoleEnum> roles;
-
-    private String token;
-
-    private String message;
 }

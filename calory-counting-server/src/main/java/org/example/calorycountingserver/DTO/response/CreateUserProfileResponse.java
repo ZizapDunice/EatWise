@@ -1,11 +1,15 @@
-package org.example.calorycountingserver.DTO.request;
+package org.example.calorycountingserver.DTO.response;
 
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class CreateUserProfileRequest {
+public class CreateUserProfileResponse {
+
+    private String name;
+
+    private String email;
 
     private String gender;
 
@@ -20,4 +24,5 @@ public class CreateUserProfileRequest {
     private String activityLevel;
 
     private List<String> dietaryPreferences;
+
 }
